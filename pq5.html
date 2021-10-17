@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pq5</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="objects">Objects</h2>
+<h3 id="problem-1">Problem 1</h3>
+<pre><code>public class Comparer {
+	private int x;
+	public void setValue(int data) {
+		x = data;
+	}
+	public boolean compare(int data) {
+		return data &gt; x;
+	}
+}
+</code></pre>
+<h3 id="problem-2">Problem 2</h3>
+<pre><code>public class OddCounter {
+	private int count;
+	public OddCounter(int data) {
+		assert data &gt;= 0;
+		count = data;
+	}
+	public void addValue(int data) {
+		if (data % 2 != 0) {
+			count++;
+		}
+	}
+	public int getCount() {
+		return count;
+	}
+}
+
+</code></pre>
+<h3 id="problem-3">Problem 3</h3>
+<pre><code>public class Cat {
+	private int lives;
+	private String name;
+	public Cat(String x, int y) {
+		assert x != null;
+		assert y &gt;= 0;
+		lives = y;
+		name = x;
+	}
+	public int getLives() {
+		return lives;
+	}
+	public void setLives(int data) {
+		assert data &gt;= 0;
+		lives = data;
+	}
+	public String getName() {
+		return name;
+	}
+}
+	
+	
+</code></pre>
+</div>
+</body>
+
+</html>
