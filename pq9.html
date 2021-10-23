@@ -11,7 +11,6 @@
 <body class="stackedit">
   <div class="stackedit__html"><h2 id="algorithms-analysis-and-lists">Algorithms Analysis and Lists</h2>
 <h3 id="simplearraylist-startswith">SimpleArrayList startsWith</h3>
-<p>Waiting on bug fix.</p>
 <pre><code>public class SimpleArrayList {
 	private final Object[] values;
 	public SimpleArrayList(Object[] setValues) {
@@ -20,17 +19,24 @@
 	}
 	public boolean startsWith(Object o) {
 		
-			if (!(o instanceof SimpleArrayList &amp;&amp; ((SimpleArrayList) o).values.length &lt;= values.length)) {
-				return false;
-			} else {
-				for (int i = 0; i &lt; ((SimpleArrayList) o).values.length; i++) {
-					if (!((SimpleArrayList) o).values[i].equals(values[i])) {
-						return false;
-					}
+		if (!(o instanceof SimpleArrayList)) {
+			return false;
+		} 
+		if (((SimpleArrayList) o).values.length <= values.length) {
+			for (int i = 0; i < ((SimpleArrayList) o).values.length; i++) {
+				if (!((SimpleArrayList) o).values[i].equals(values[i])) {
+					return false;
 				}
 			}
-			return true;
-		
+		} else if (((SimpleArrayList) o).values.length > values.length) {
+			for (int i = 0; i < values.length; i++) {
+				if (!((SimpleArrayList) o).values[i].equals(values[i])) {
+					return false;
+				}
+			}
+		}
+		return true;
+	
 	}
 }
 
