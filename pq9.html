@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pq9</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="algorithms-analysis-and-lists">Algorithms Analysis and Lists</h2>
+<h3 id="simplearraylist-startswith">SimpleArrayList startsWith</h3>
+<p>Waiting on bug fix.</p>
+<pre><code>public class SimpleArrayList {
+	private final Object[] values;
+	public SimpleArrayList(Object[] setValues) {
+		assert setValues != null;
+		values = setValues;
+	}
+	public boolean startsWith(Object o) {
+		
+			if (!(o instanceof SimpleArrayList &amp;&amp; ((SimpleArrayList) o).values.length &lt;= values.length)) {
+				return false;
+			} else {
+				for (int i = 0; i &lt; ((SimpleArrayList) o).values.length; i++) {
+					if (!((SimpleArrayList) o).values[i].equals(values[i])) {
+						return false;
+					}
+				}
+			}
+			return true;
+		
+	}
+}
+
+</code></pre>
+<h3 id="simplelinkedlist-lastequals">SimpleLinkedList LastEquals</h3>
+<pre><code>public class LastEquals extends SimpleLinkedList {
+	public boolean lastEquals(Object o) {
+		Object fin = null;
+		if (start == null) {
+			return false; 
+		} 
+		for (Item current = start; current != null; current = current.next) {
+			if (current.next == null) {
+				fin = current.value;
+			}
+		} 
+		return o.equals(fin);
+	}
+}
+
+
+</code></pre>
+<h3 id="list-is-longer">List Is Longer</h3>
+<pre><code>import java.util.List;
+public class ListIsLonger {
+	public static List&lt;String&gt; isLonger(List&lt;String&gt; x, List&lt;String&gt; y) {
+		if (x.size() &gt; y.size()) {
+			return x;
+		} else {
+			return y;
+		}
+	}
+}
+
+
+</code></pre>
+</div>
+</body>
+
+</html>
