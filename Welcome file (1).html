@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="binary-trees">Binary Trees</h2>
+<h3 id="binary-tree-positive-sum">Binary Tree Positive Sum</h3>
+<pre><code>import cs125.trees.BinaryTree;
+public class BinaryTreePositiveSum {
+	public static int positiveSum(BinaryTree&lt;Integer&gt; x) {
+		if (x == null) {
+			return 0;
+		} else if (x.getValue() &gt; 0) {
+			return x.getValue() + positiveSum(x.getRight()) + positiveSum(x.getLeft());
+		} else {
+			return positiveSum(x.getRight()) + positiveSum(x.getLeft());
+		}
+	}
+}
+
+
+</code></pre>
+<h3 id="binary-tree-child-sum-counter">Binary Tree Child Sum Counter</h3>
+<pre><code>import cs125.trees.BinaryTree;
+public class BinaryTreeCounter {
+	public static int countChildSumToOdd(BinaryTree&lt;Integer&gt; x) {
+		 if(x == null) {
+			 return 0;
+		 } else if (x.getLeft() != null &amp;&amp; x.getRight() == null &amp;&amp; x.getLeft().getValue() % 2 != 0) {
+			 return 1 + countChildSumToOdd(x.getLeft());
+		 } else if (x.getRight() != null &amp;&amp; x.getLeft() == null &amp;&amp; x.getRight().getValue() % 2 != 0) {
+			 return 1 + countChildSumToOdd(x.getRight());
+		 } else if (x.getRight() != null &amp;&amp; x.getLeft() != null &amp;&amp; (x.getRight().getValue() + x.getLeft().getValue()) % 2 != 0) {
+			 return 1 + countChildSumToOdd(x.getRight()) + countChildSumToOdd(x.getLeft());
+	     } else {
+		     return countChildSumToOdd(x.getRight()) + countChildSumToOdd(x.getLeft());
+		 }
+}
+
+
+
+
+</code></pre>
+</div>
+</body>
+
+</html>
