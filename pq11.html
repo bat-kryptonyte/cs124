@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pq11</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="recursion-and-graphs">Recursion and Graphs</h2>
+<h3 id="unweighted-graph-count-positive">Unweighted Graph Count Positive</h3>
+<pre><code>import cs1.graphs.UnweightedGraph;
+import cs1.graphs.GraphNode;
+import java.util.Set;
+import java.util.HashSet;
+
+public class GraphCount {
+	public static int count(UnweightedGraph&lt;Integer&gt; x) {
+		if (x == null) {
+			throw new IllegalArgumentException();
+		}
+		int count = 0;
+		Set&lt;GraphNode&lt;Integer&gt;&gt; set = new HashSet&lt;&gt;();
+		traverse(x.getNode(), set);
+		for (GraphNode&lt;Integer&gt; i: set) {
+			if (i.getValue() &gt; 0) {
+				count++;
+			}
+		}
+		return count;
+	}
+	private static void traverse(GraphNode&lt;Integer&gt; x, Set&lt;GraphNode&lt;Integer&gt;&gt; y) {
+		if (y.contains(x)) {
+			return;
+		}
+		y.add(x);
+		for (GraphNode&lt;Integer&gt; i: x.getNeighbors()) {
+			traverse(i, y);
+		}
+	}
+}
+		
+
+
+
+</code></pre>
+<h3 id="binary-tree-count-children-sum-to-odd">Binary Tree Count Children Sum to Odd</h3>
+<pre><code>import cs125.trees.BinaryTree;
+public class BinaryTreeCounter {
+	public static int countChildSumToOdd(BinaryTree&lt;Integer&gt; x) {
+		 if(x == null) {
+			 return 0;
+		 } else if (x.getLeft() != null &amp;&amp; x.getRight() == null &amp;&amp; x.getLeft().getValue() % 2 != 0) {
+			 return 1 + countChildSumToOdd(x.getLeft());
+		 } else if (x.getRight() != null &amp;&amp; x.getLeft() == null &amp;&amp; x.getRight().getValue() % 2 != 0) {
+			 return 1 + countChildSumToOdd(x.getRight());
+		 } else if (x.getRight() != null &amp;&amp; x.getLeft() != null &amp;&amp; (x.getRight().getValue() + x.getLeft().getValue()) % 2 != 0) {
+			 return 1 + countChildSumToOdd(x.getRight()) + countChildSumToOdd(x.getLeft());
+	     } else {
+		     return countChildSumToOdd(x.getRight()) + countChildSumToOdd(x.getLeft());
+		 }
+}
+
+
+
+
+
+</code></pre>
+</div>
+</body>
+
+</html>
