@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pq12</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="sorting-more-binary-trees-and-graphs">Sorting (More Binary Trees and Graphs</h2>
+<h3 id="count-binary-tree-non-leaves">Count Binary Tree Non Leaves</h3>
+<pre><code>import cs125.trees.BinaryTree;
+public class BinaryTreeCounter {
+	public static int countNonLeaves(BinaryTree&lt;?&gt; x) {
+		if (x == null) {
+			return 0;
+		} else if (x.getLeft() != null &amp;&amp; x.getRight == null) {
+			return 1 + countNonLeaves(x.getLeft());
+		} else if (x.getRight() != null &amp;&amp; x.getLeft == null) {
+			return 1 + countNonLeaves(x.getRight());
+		} else if (x.getRight() != null &amp;&amp; x.getLeft() != null) {
+			return 1 + countNonLeaves(x.getRight()) + countNonLeaves(x.getLeft());
+		} else {
+			return countNonLeaves(x.getRight()) + countNonLeaves(x.getLeft());
+		}
+	}
+}
+
+
+
+</code></pre>
+<h3 id="unweighted-graph-sum-negative">Unweighted Graph Sum Negative</h3>
+<pre><code>import cs1.graphs.UnweightedGraph;
+import cs1.graphs.GraphNode;
+import java.util.Set;
+import java.util.HashSet;
+
+public class GraphSum {
+	public static int sum(UnweightedGraph&lt;Integer&gt; x) {
+		if (x == null) {
+			throw new IllegalArgumentException();
+		}
+		int sum = 0;
+		Set&lt;GraphNode&lt;Integer&gt;&gt; set = new HashSet&lt;&gt;();
+		travis(x.getNode(), set);
+		for (GraphNode&lt;Integer&gt; i: set) {
+			if (i.getValue() &lt; 0) {
+				sum += i.getValue();
+			}
+		}
+		return sum;
+	}
+	private static void travis(GraphNode&lt;Integer&gt; x, Set&lt;GraphNode&lt;Integer&gt;&gt; y) {
+		if (y.contains(x)) {
+			return;
+		}
+		y.add(x);
+		for (GraphNode&lt;Integer&gt; i: x.getNeighbors()) {
+			travis(i, y);
+		}
+	}
+}
+
+
+
+
+
+</code></pre>
+</div>
+</body>
+
+</html>
