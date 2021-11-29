@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pq13</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="sorting">Sorting</h2>
+<h3 id="merge">Merge</h3>
+<pre><code>public class Merger {
+	public static int[] merge(int[] x, int[] y) {
+		if (x == null || y == null) {
+			throw new IllegalArgumentException();
+		}
+		if (x.length == 0) {
+			return y;
+		} else if (y.length == 0) {
+			return x;
+		}
+		int[] toReturn = new int[x.length + y.length];
+		int first = 0;
+		int second = 0;
+		for (int i = 0; i &lt; toReturn.length; i++) {
+			if (first == x.length) {
+				toReturn[i] = y[second++];
+			} else if (second == y.length) {
+				toReturn[i] = x[first++];
+			} else if (x[first] &gt; y[second]) {
+				toReturn[i] = x[first++];
+			} else {
+				toReturn[i] = y[second++];
+			}
+		}
+		return toReturn;
+	}
+}
+
+
+</code></pre>
+<h3 id="quicksort-partition-by-last-value">QuickSort Partition by Last Value</h3>
+<pre><code>public class Partitioner {
+	public static int partition(int[] values) {
+		if (values == null || values.length == 0) {
+			throw new IllegalArgumentException();
+		}
+		int pivot = values[values.length - 1];
+		int p1 = 0;
+		for (int i = 0; i &lt; values.length - 1; i++) {
+			if (values[i] &lt; pivot) {
+				swap(values, i, p1);
+				p1++;
+			}
+		}
+		swap(values, p1, values.length - 1);
+		return p1;
+		}
+	}
+	private static void swap(int[] a, int b, int c) {
+		int temp = a[b];
+		a[b] = a[c];
+		a[c] = temp;
+	}
+}
+
+</code></pre>
+</div>
+</body>
+
+</html>
