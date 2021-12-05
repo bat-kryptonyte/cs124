@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pq14</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="anything-and-everything">Anything and Everything</h2>
+<h3 id="simplelinkedlist-last">SimpleLinkedList last</h3>
+<pre><code>public class LastLinkedList extends SimpleLinkedList {
+	public Object last() {
+		Object toReturn = null;
+		for (Item current = start; current != null; current = current.next) {
+			toReturn = current.value;
+		}
+		return toReturn;
+	}
+}
+
+
+</code></pre>
+<h3 id="binary-tree-count-has-both-children">Binary Tree Count Has Both Children</h3>
+<pre><code>public class BinaryTreeCounter {
+	public static int countHasBothChildren(BinaryTree&lt;?&gt; x) {
+		if (x == null) {
+			return 0;
+		} else if (x.getLeft() != null &amp;&amp; x.getRight() != null) {
+			return 1 + countHasBothChildren(x.getLeft()) + countHasBothChildren(x.getRight());
+		} 
+		return countHasBothChildren(x.getLeft()) + countHasBothChildren(x.getRight());
+	}
+}
+
+
+
+</code></pre>
+</div>
+</body>
+
+</html>
